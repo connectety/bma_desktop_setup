@@ -53,7 +53,10 @@ class _AuthInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle defaultStyle = DefaultTextStyle.of(context).style;
+    const TextStyle defaultStyle = TextStyle(
+      fontWeight: FontWeight.normal,
+      color: Colors.black87,
+    );
     final TextStyle boldTextStyle = defaultStyle.copyWith(
       fontWeight: FontWeight.bold,
     );
@@ -62,10 +65,11 @@ class _AuthInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        QrImage(
-          data: _auth.totpURl,
-          version: QrVersions.auto,
-          size: 200,
+        Expanded(
+          child: QrImage(
+            data: _auth.totpURl,
+            version: QrVersions.auto,
+          ),
         ),
         RichText(
           text: TextSpan(
@@ -97,6 +101,11 @@ class _ErrorInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const TextStyle defaultStyle = TextStyle(color: Colors.red);
+    final TextStyle boldTextStyle = defaultStyle.copyWith(
+      fontWeight: FontWeight.bold,
+    );
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,17 +115,11 @@ class _ErrorInfo extends StatelessWidget {
           size: 40,
           color: Colors.grey[800],
         ),
-        const Text(
-          'An unexpected Error okured:',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.red,
-          ),
-        ),
         Text(
-          _error.toString(),
-          style: const TextStyle(color: Colors.red),
+          'An unexpected Error okured:',
+          style: boldTextStyle,
         ),
+        Text(_error.toString(), style: defaultStyle),
       ],
     );
   }
