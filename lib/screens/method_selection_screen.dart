@@ -49,7 +49,7 @@ class MethodSelectionPage extends StatelessWidget {
             ),
             _btnFactory(
               context,
-              const RecoverAuthPage(),
+              RecoverAuthPage(),
               'Recover an authenticator',
             ),
             const RegionSelector(),

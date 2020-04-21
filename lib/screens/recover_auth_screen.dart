@@ -7,27 +7,54 @@ import '../widgets/region_selector.dart';
 import 'auth_info_screen.dart';
 
 class RecoverAuthPage extends StatelessWidget {
-  const RecoverAuthPage({Key key}) : super(key: key);
+  RecoverAuthPage({Key key}) : super(key: key);
 
-  TextField _textFieldFactory(
-    String hintText,
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController serialController = TextEditingController();
+  final TextEditingController restoreCodeController = TextEditingController();
+
+  void submit(BuildContext context) {
+    if (_formKey.currentState.validate()) {
+      Navigator.push(
+        context,
+        SlidePageRoute<AuthInfoPage>(
+          widget: AuthInfoPage(
+            () => restore(
+              serialController.text,
+              restoreCodeController.text,
+              RegionSelector.getRegion(context),
+            ),
+          ),
+        ),
+      );
+    }
+  }
+
+  TextFormField _textFormFieldFactory(
     TextEditingController controller,
+    String name,
+    int requiredLength,
+    BuildContext context,
     List<TextInputFormatter> inputFormatters,
   ) {
-    return TextField(
+    return TextFormField(
       autofocus: true,
       autocorrect: false,
-      decoration: InputDecoration(hintText: hintText),
+      decoration: InputDecoration(hintText: 'Enter a $name here.'),
       controller: controller,
       inputFormatters: inputFormatters,
+      validator: (String value) {
+        if (value.length < requiredLength) {
+          return 'Please completly fill in the $name.';
+        }
+        return null;
+      },
+      onFieldSubmitted: (String _) => submit(context),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController serialController = TextEditingController();
-    final TextEditingController restoreCodeController = TextEditingController();
-
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8),
@@ -42,55 +69,49 @@ class RecoverAuthPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(80),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _textFieldFactory(
-              'Enter serial here',
-              serialController,
-              <TextInputFormatter>[
-                _UppercaseTextFormatter(),
-                WhitelistingTextInputFormatter(RegExp(r'[A-Z0-9\-]')),
-                _SerialTextFormatter(),
-                // _SerialTextFormatter(),
-              ],
-            ),
-            _textFieldFactory(
-              'Enter a restore-code here',
-              restoreCodeController,
-              <TextInputFormatter>[
-                _UppercaseTextFormatter(),
-                WhitelistingTextInputFormatter(RegExp('[A-Z0-9]')),
-                BlacklistingTextInputFormatter(RegExp('[IOLS]')),
-                LengthLimitingTextInputFormatter(10),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                const RegionSelector(),
-                const SizedBox(width: 20),
-                OutlineButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      SlidePageRoute<AuthInfoPage>(
-                        widget: AuthInfoPage(
-                          () => restore(
-                            serialController.text,
-                            restoreCodeController.text,
-                            RegionSelector.getRegion(context),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: const Text('next'),
-                ),
-              ],
-            ),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _textFormFieldFactory(
+                serialController,
+                'serial',
+                17,
+                context,
+                <TextInputFormatter>[
+                  _UppercaseTextFormatter(),
+                  WhitelistingTextInputFormatter(RegExp(r'[A-Z0-9\-]')),
+                  _SerialTextFormatter(),
+                  // _SerialTextFormatter(),
+                ],
+              ),
+              _textFormFieldFactory(
+                restoreCodeController,
+                'restore-code',
+                10,
+                context,
+                <TextInputFormatter>[
+                  _UppercaseTextFormatter(),
+                  WhitelistingTextInputFormatter(RegExp('[A-Z0-9]')),
+                  BlacklistingTextInputFormatter(RegExp('[IOLS]')),
+                  LengthLimitingTextInputFormatter(10),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  const RegionSelector(),
+                  const SizedBox(width: 20),
+                  OutlineButton(
+                    onPressed: () => submit(context),
+                    child: const Text('next'),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
