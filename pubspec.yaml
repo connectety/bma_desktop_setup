@@ -1,0 +1,27 @@
+name: setup4bmatotp
+description: helps setting up a totp app to use as a second factor authenticor for blizzard
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.1.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.12.0+4
+  pointycastle: ^1.0.2
+  base32: 1.1.1
+
+  scoped_model: ^1.0.1
+
+  qr_flutter: ^3.1.0
+
+dev_dependencies:
+  test: ^1.9.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
