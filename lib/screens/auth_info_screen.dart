@@ -116,7 +116,7 @@ class _ErrorInfo extends StatelessWidget {
           color: Colors.grey[800],
         ),
         Text(
-          'An unexpected Error okured:',
+          'An unexpected error occurred:',
           style: boldTextStyle,
         ),
         Text(_error.toString(), style: defaultStyle),
