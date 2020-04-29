@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ScopedModel<RegionModel>(
       model: RegionModel(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'setup4bmatotp',
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),

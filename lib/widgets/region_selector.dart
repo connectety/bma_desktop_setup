@@ -3,18 +3,13 @@ import 'package:scoped_model/scoped_model.dart';
 
 import '../scoped_models/region_model.dart';
 
-class RegionSelector extends StatefulWidget {
+class RegionSelector extends StatelessWidget {
   const RegionSelector({Key key}) : super(key: key);
-
-  @override
-  RegionSelectorState createState() => RegionSelectorState();
 
   static String getRegion(BuildContext context) {
     return RegionModel.of(context).region;
   }
-}
 
-class RegionSelectorState extends State<RegionSelector> {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<RegionModel>(
