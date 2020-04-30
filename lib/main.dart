@@ -13,12 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModel<RegionModel>(
       model: RegionModel(),
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'setup4bmatotp',
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-        ),
-        home: const MethodSelectionPage(),
+        home: MethodSelectionPage(),
       ),
     );
   }
