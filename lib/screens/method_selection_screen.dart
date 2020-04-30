@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../bma/server_com.dart';
 import '../custom_routes/slide_page_route.dart';
+import '../widgets/gradient_btn.dart';
 import '../widgets/region_selector.dart';
 import 'auth_info_screen.dart';
 import 'recover_auth_screen.dart';
@@ -9,12 +10,14 @@ import 'recover_auth_screen.dart';
 class MethodSelectionPage extends StatelessWidget {
   const MethodSelectionPage({Key key}) : super(key: key);
 
-  OutlineButton _btnFactory(
+  Widget _btnFactory(
     final BuildContext context,
+    final IconData icon,
+    final Gradient gradient,
     final Widget routeWidget,
     final String text,
   ) {
-    return OutlineButton(
+    return GradientButton.icon(
       onPressed: () {
         Navigator.push(
           context,
@@ -23,13 +26,15 @@ class MethodSelectionPage extends StatelessWidget {
           ),
         );
       },
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+      gradient: gradient,
+      icon: Icon(icon, color: Colors.white),
+      label: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-      borderSide: const BorderSide(
-        color: Colors.purple,
-      ),
-      child: Text(text),
     );
   }
 
@@ -42,6 +47,13 @@ class MethodSelectionPage extends StatelessWidget {
           children: <Widget>[
             _btnFactory(
               context,
+              Icons.add,
+              LinearGradient(colors: <Color>[
+                Colors.teal[800],
+                Colors.teal[600],
+                Colors.tealAccent[700],
+                Colors.greenAccent[400],
+              ]),
               AuthInfoPage(() {
                 return createAuthenticator(RegionSelector.getRegion(context));
               }),
@@ -49,6 +61,13 @@ class MethodSelectionPage extends StatelessWidget {
             ),
             _btnFactory(
               context,
+              Icons.replay,
+              LinearGradient(colors: <Color>[
+                Colors.deepPurple[800],
+                Colors.deepPurple,
+                Colors.redAccent[400],
+                Colors.redAccent,
+              ]),
               RecoverAuthPage(),
               'Recover an authenticator',
             ),

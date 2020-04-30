@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../bma/server_com.dart';
 import '../custom_routes/slide_page_route.dart';
+import '../scoped_models/region_model.dart';
+import '../widgets/gradient_btn.dart';
 import '../widgets/region_selector.dart';
 import 'auth_info_screen.dart';
 
@@ -22,7 +24,7 @@ class RecoverAuthPage extends StatelessWidget {
             () => restore(
               serialController.text,
               restoreCodeController.text,
-              RegionSelector.getRegion(context),
+              RegionModel.of(context).region,
             ),
           ),
         ),
@@ -58,13 +60,17 @@ class RecoverAuthPage extends StatelessWidget {
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8),
-        child: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          backgroundColor: Colors.grey,
-          icon: const Icon(Icons.arrow_back),
-          label: const Text('Back'),
+        child: GradientButton.icon(
+          onPressed: () =>  Navigator.pop(context),
+          gradient: const LinearGradient(colors: <Color>[
+            Color(0xff000000),
+            Color(0xff434343),
+          ]),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          label: const Text(
+            'Back',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
       body: Padding(
@@ -104,9 +110,16 @@ class RecoverAuthPage extends StatelessWidget {
                 children: <Widget>[
                   const RegionSelector(),
                   const SizedBox(width: 20),
-                  OutlineButton(
+                  GradientButton(
                     onPressed: () => submit(context),
-                    child: const Text('next'),
+                    gradient: const LinearGradient(colors: <Color>[
+                      Colors.blue,
+                      Colors.indigo,
+                    ]),
+                    child: const Text(
+                      'next',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               ),

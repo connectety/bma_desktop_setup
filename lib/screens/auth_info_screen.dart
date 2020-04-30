@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../bma/authenticator.dart';
+import '../widgets/gradient_btn.dart';
 
 class AuthInfoPage extends StatelessWidget {
   const AuthInfoPage(this._authBuilder, {Key key}) : super(key: key);
@@ -13,13 +14,17 @@ class AuthInfoPage extends StatelessWidget {
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8),
-        child: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          backgroundColor: Colors.grey,
-          icon: const Icon(Icons.arrow_back),
-          label: const Text('Back'),
+        child: GradientButton.icon(
+          onPressed: () =>  Navigator.pop(context),
+          gradient: const LinearGradient(colors: <Color>[
+            Color(0xff000000),
+            Color(0xff434343),
+          ]),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          label: const Text(
+            'Back',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
       body: Center(
