@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../bma/server_com.dart';
+import '../commons/gradient_input_border.dart';
 import '../commons/slide_page_route.dart';
 import '../input_text_formatters/serial_text_formatter.dart';
 import '../input_text_formatters/uppercase_text_formatter.dart';
@@ -34,7 +35,7 @@ class RecoverAuthPage extends StatelessWidget {
     }
   }
 
-  TextFormField _textFormFieldFactory(
+  Widget _textFormFieldFactory(
     TextEditingController controller,
     String name,
     int requiredLength,
@@ -42,9 +43,20 @@ class RecoverAuthPage extends StatelessWidget {
     List<TextInputFormatter> inputFormatters,
   ) {
     return TextFormField(
-      autofocus: true,
-      autocorrect: false,
-      decoration: InputDecoration(hintText: 'Enter a $name here.'),
+      decoration: InputDecoration(
+        filled: true,
+        border: const GradientInputBorder(
+          gradient: LinearGradient(
+            colors: <Color>[
+              // Colors are easy thanks to Flutter's Colors class.
+              Colors.orange,
+              Colors.purple,
+            ],
+          ),
+        ),
+        fillColor: Colors.grey[300],
+        hintText: 'Enter a $name here.',
+      ),
       controller: controller,
       inputFormatters: inputFormatters,
       validator: (String value) {
@@ -94,6 +106,7 @@ class RecoverAuthPage extends StatelessWidget {
                   // _SerialTextFormatter(),
                 ],
               ),
+              const SizedBox(height: 20),
               _textFormFieldFactory(
                 restoreCodeController,
                 'restore-code',
