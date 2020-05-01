@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../bma/server_com.dart';
-import '../custom_routes/slide_page_route.dart';
+import '../commons/slide_page_route.dart';
 import '../widgets/gradient_btn.dart';
 import '../widgets/region_selector.dart';
 import 'auth_info_screen.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../bma/server_com.dart';
-import '../custom_routes/slide_page_route.dart';
+import '../commons/slide_page_route.dart';
 import '../input_text_formatters/serial_text_formatter.dart';
 import '../input_text_formatters/uppercase_text_formatter.dart';
 import '../scoped_models/region_model.dart';
