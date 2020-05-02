@@ -132,7 +132,7 @@ class RecoverAuthPage extends StatelessWidget {
                       Colors.indigo,
                     ]),
                     child: const Text(
-                      'next',
+                      'Next',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
