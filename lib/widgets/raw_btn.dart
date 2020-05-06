@@ -44,6 +44,7 @@ class _RawButtonState extends State<RawButton> {
         shape: widget.shape,
         type: MaterialType.transparency,
         child: Ink(
+          padding: const EdgeInsetsDirectional.only(start: 12, end: 16),
           decoration: widget.decoration,
           child: InkWell(
             onTap: widget.onPressed,
@@ -149,8 +150,7 @@ class _RenderInputPadding extends RenderShiftedBox {
       size = constraints.constrain(Size(height, width));
       final BoxParentData childParentData = child.parentData;
       // ignore: cascade_invocations
-      childParentData.offset =
-          Alignment.center.alongOffset(size - child.size);
+      childParentData.offset = Alignment.center.alongOffset(size - child.size);
     } else {
       size = Size.zero;
     }
