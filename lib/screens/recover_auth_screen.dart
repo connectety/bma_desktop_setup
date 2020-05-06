@@ -76,9 +76,9 @@ class RecoverAuthPage extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: GradientButton.icon(
           onPressed: () => Navigator.pop(context),
-          gradient: const LinearGradient(colors: <Color>[
-            Color(0xff000000),
-            Color(0xff434343),
+          gradient: LinearGradient(colors: <Color>[
+            Colors.black,
+            Colors.grey[800],
           ]),
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           label: const Text(
