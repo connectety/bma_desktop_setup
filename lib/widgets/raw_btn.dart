@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-class RawButton extends StatefulWidget {
+class RawButton extends StatelessWidget {
   const RawButton({
     @required this.onPressed,
     Key key,
@@ -26,11 +26,6 @@ class RawButton extends StatefulWidget {
   final BoxDecoration decoration;
 
   @override
-  _RawButtonState createState() => _RawButtonState();
-}
-
-class _RawButtonState extends State<RawButton> {
-  @override
   Widget build(BuildContext context) {
     const VisualDensity density = VisualDensity();
     final Offset densityAdjustment = density.baseSizeAdjustment;
@@ -41,18 +36,20 @@ class _RawButtonState extends State<RawButton> {
     final Widget result = ConstrainedBox(
       constraints: effectiveConstraints,
       child: Material(
-        shape: widget.shape,
+        shape: shape,
         type: MaterialType.transparency,
         child: Ink(
-          padding: const EdgeInsetsDirectional.only(start: 12, end: 16),
-          decoration: widget.decoration,
+          decoration: decoration,
           child: InkWell(
-            onTap: widget.onPressed,
-            customBorder: widget.shape,
-            child: Center(
-              widthFactor: 1,
-              heightFactor: 1,
-              child: widget.child,
+            onTap: onPressed,
+            customBorder: shape,
+            child: Container(
+              padding: const EdgeInsetsDirectional.only(start: 12, end: 16),
+              child: Center(
+                widthFactor: 1,
+                heightFactor: 1,
+                child: child,
+              ),
             ),
           ),
         ),
