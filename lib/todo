@@ -1,6 +1,5 @@
 create custom loading animation
 make text and error icon scale
-set color for method selection
 rework gradient buttons do the same with less duplicated code
 make info page use multiple columns in same row, when to large
 create audit instructions

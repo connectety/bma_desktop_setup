@@ -49,10 +49,8 @@ class MethodSelectionPage extends StatelessWidget {
               context,
               Icons.add,
               LinearGradient(colors: <Color>[
-                Colors.teal[800],
-                Colors.teal[600],
-                Colors.tealAccent[700],
-                Colors.greenAccent[400],
+                Colors.green[600],
+                Colors.greenAccent[700],
               ]),
               AuthInfoPage(() {
                 return createAuthenticator(RegionSelector.getRegion(context));
@@ -62,11 +60,9 @@ class MethodSelectionPage extends StatelessWidget {
             _btnFactory(
               context,
               Icons.replay,
-              LinearGradient(colors: <Color>[
-                Colors.deepPurple[800],
-                Colors.deepPurple,
-                Colors.redAccent[400],
-                Colors.redAccent,
+              const LinearGradient(colors: <Color>[
+                Colors.blue,
+                Colors.indigo,
               ]),
               RecoverAuthPage(),
               'Recover an authenticator',
