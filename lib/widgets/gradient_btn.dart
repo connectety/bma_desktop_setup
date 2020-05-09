@@ -2,64 +2,55 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'raw_btn.dart';
-
-class GradientButton extends RawButton {
-  GradientButton({
-    @required VoidCallback onPressed,
+class GradientButton extends StatelessWidget {
+  const GradientButton({
+    @required this.onPressed,
+    @required this.gradient,
+    @required this.child,
+    this.borderRadius = const BorderRadius.all(Radius.circular(80)),
     Key key,
-    Widget child,
-    Gradient gradient,
-    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(80)),
-  }) : super(
-          key: key,
+  }) : super(key: key);
+
+  GradientButton.icon({
+    @required this.onPressed,
+    @required this.gradient,
+    @required Widget icon,
+    @required Widget label,
+    this.borderRadius = const BorderRadius.all(Radius.circular(80)),
+    Key key,
+  })  : child = Row(
+    mainAxisSize: MainAxisSize.min,
+    children: <Widget>[icon, const SizedBox(width: 8), label],
+  ),
+        super(key: key);
+
+  final VoidCallback onPressed;
+  final Gradient gradient;
+  final BorderRadius borderRadius;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: gradient,
+                borderRadius: borderRadius,
+              ),
+            ),
+          ),
+        ),
+        RawMaterialButton(
           onPressed: onPressed,
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
-          decoration: BoxDecoration(
-            gradient: gradient,
-            borderRadius: borderRadius,
-          ),
+          padding: const EdgeInsetsDirectional.only(start: 12, end: 16),
           child: child,
-        );
-
-  factory GradientButton.icon({
-    @required VoidCallback onPressed,
-    @required Widget icon,
-    @required Widget label,
-    Key key,
-    Gradient gradient,
-  }) = _GradientButtonWithIcon;
-
-  Widget build(BuildContext context) {
-    return RawButton(
-      onPressed: onPressed,
-      shape: shape,
-      decoration: decoration,
-      child: child,
+        ),
+      ],
     );
   }
-}
-
-class _GradientButtonWithIcon extends GradientButton {
-  _GradientButtonWithIcon({
-    @required VoidCallback onPressed,
-    @required Widget icon,
-    @required Widget label,
-    Key key,
-    Gradient gradient,
-  })  : assert(icon != null, 'no icon set'),
-        assert(label != null, 'no label widget set'),
-        super(
-          key: key,
-          onPressed: onPressed,
-          gradient: gradient,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              icon,
-              const SizedBox(width: 8),
-              label,
-            ],
-          ),
-        );
 }
