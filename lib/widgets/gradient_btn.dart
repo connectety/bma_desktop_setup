@@ -19,9 +19,9 @@ class GradientButton extends StatelessWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(80)),
     Key key,
   })  : child = Row(
-    mainAxisSize: MainAxisSize.min,
-    children: <Widget>[icon, const SizedBox(width: 8), label],
-  ),
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[icon, const SizedBox(width: 8), label],
+        ),
         super(key: key);
 
   final VoidCallback onPressed;

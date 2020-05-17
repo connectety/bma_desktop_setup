@@ -15,7 +15,7 @@ class AuthInfoPage extends StatelessWidget {
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8),
         child: GradientButton.icon(
-          onPressed: () =>  Navigator.pop(context),
+          onPressed: () => Navigator.pop(context),
           gradient: const LinearGradient(colors: <Color>[
             Color(0xff000000),
             Color(0xff434343),
