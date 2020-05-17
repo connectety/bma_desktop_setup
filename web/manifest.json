@@ -1,8 +1,8 @@
 {
-    "name": "setup_for_bma_totp",
-    "short_name": "setup_for_bma_totp",
+    "name": "setup4bmatotp",
+    "short_name": "setup4bmatotp",
     "start_url": ".",
-    "display": "minimal-ui",
+    "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
     "description": "A new Flutter project.",
