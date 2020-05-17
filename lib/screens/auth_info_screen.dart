@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../bma/authenticator.dart';
+import '../widgets/custom_loading_indicator.dart';
 import '../widgets/gradient_btn.dart';
 
 class AuthInfoPage extends StatelessWidget {
@@ -41,7 +42,7 @@ class AuthInfoPage extends StatelessWidget {
               } else if (snapshot.hasError) {
                 return _ErrorInfo(snapshot.error);
               } else {
-                return const CircularProgressIndicator();
+                return const CustomLoadingIndicator(color: Colors.black);
               }
             },
           ),
