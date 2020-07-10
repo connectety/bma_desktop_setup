@@ -38,6 +38,7 @@ class RecoverAuthPage extends StatelessWidget {
   Widget _textFormFieldFactory(
     TextEditingController controller,
     String name,
+    String example,
     int requiredLength,
     BuildContext context,
     List<TextInputFormatter> inputFormatters,
@@ -61,7 +62,7 @@ class RecoverAuthPage extends StatelessWidget {
       inputFormatters: inputFormatters,
       validator: (String value) {
         if (value.length < requiredLength) {
-          return 'Please completly fill in the $name.';
+          return 'Please completely fill in the $name. (e.g. $example)';
         }
         return null;
       },
@@ -97,6 +98,7 @@ class RecoverAuthPage extends StatelessWidget {
               _textFormFieldFactory(
                 serialController,
                 'serial',
+                'AB-1234-1234-1234',
                 17,
                 context,
                 <TextInputFormatter>[
@@ -110,6 +112,7 @@ class RecoverAuthPage extends StatelessWidget {
               _textFormFieldFactory(
                 restoreCodeController,
                 'restore-code',
+                'ABCDE12345',
                 10,
                 context,
                 <TextInputFormatter>[
