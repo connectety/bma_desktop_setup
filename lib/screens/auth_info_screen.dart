@@ -69,12 +69,10 @@ class _AuthInfo extends StatelessWidget {
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Expanded(
           child: QrImage(
             data: _auth.totpURl,
-            version: QrVersions.auto,
           ),
         ),
         RichText(
@@ -114,7 +112,6 @@ class _ErrorInfo extends StatelessWidget {
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Icon(
           Icons.warning,
