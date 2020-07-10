@@ -2,16 +2,19 @@
 
 set -e
 
+flutter="~/development/flutter"
+flutter="$flutter/bin/flutter"
+
 name="setup4bmatotp"
 org="io.github.connectety"
 desc="helps setting up a totp app to use as a second factor authenticator for blizzard"
 
-~/development/flutter/bin/flutter pub upgrade
+${flutter} pub upgrade
 
 rm .gitignore
 rm -rf linux macos windows
 
-~/development/flutter/bin/flutter create --project-name="$name" --org="$org" --description="$desc" .
+${flutter} create --project-name="$name" --org="$org" --description="$desc" .
 
 rm test/widget_test.dart
 
