@@ -101,7 +101,7 @@ class RecoverAuthPage extends StatelessWidget {
                 context,
                 <TextInputFormatter>[
                   UppercaseTextFormatter(),
-                  WhitelistingTextInputFormatter(RegExp(r'[A-Z0-9\-]')),
+                  FilteringTextInputFormatter.allow(RegExp(r'[A-Z0-9\-]')),
                   SerialTextFormatter(),
                   // _SerialTextFormatter(),
                 ],
@@ -114,8 +114,8 @@ class RecoverAuthPage extends StatelessWidget {
                 context,
                 <TextInputFormatter>[
                   UppercaseTextFormatter(),
-                  WhitelistingTextInputFormatter(RegExp('[A-Z0-9]')),
-                  BlacklistingTextInputFormatter(RegExp('[IOLS]')),
+                  FilteringTextInputFormatter.allow(RegExp('[A-Z0-9]')),
+                  FilteringTextInputFormatter.deny(RegExp('[IOLS]')),
                   LengthLimitingTextInputFormatter(10),
                 ],
               ),
