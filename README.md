@@ -12,3 +12,6 @@ If you want to deploy this to the web or mobile, there is nothing this readme ca
 
 This application is not associated in any way with Blizzard Entertainment Inc.
 All rights reserved. 
+
+## Can this access or steal any of your private data?
+see private-audit.md for why not.
