@@ -1,4 +1,4 @@
-# setup4bmatotp
+# setup4bmatotp [![Build](https://github.com/connectety/setup4bmatotp/workflows/Build/badge.svg)](https://github.com/connectety/setup4bmatotp/actions?query=workflow%3ABuild)
 
 This desktop app helps setting up a TOTP-app to use as a second-factor authenticator for Blizzard.
 
