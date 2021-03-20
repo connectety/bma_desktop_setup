@@ -6,7 +6,7 @@ import '../widgets/custom_loading_indicator.dart';
 import '../widgets/gradient_btn.dart';
 
 class AuthInfoPage extends StatelessWidget {
-  const AuthInfoPage(this._authBuilder, {Key key}) : super(key: key);
+  const AuthInfoPage(this._authBuilder, {Key? key}) : super(key: key);
 
   final Future<Authenticator> Function() _authBuilder;
 
@@ -53,9 +53,9 @@ class AuthInfoPage extends StatelessWidget {
 }
 
 class _AuthInfo extends StatelessWidget {
-  const _AuthInfo(this._auth, {Key key}) : super(key: key);
+  const _AuthInfo(this._auth, {Key? key}) : super(key: key);
 
-  final Authenticator _auth;
+  final Authenticator? _auth;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _AuthInfo extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: QrImage(
-            data: _auth.totpURl,
+            data: _auth!.totpURl,
           ),
         ),
         RichText(
@@ -80,7 +80,7 @@ class _AuthInfo extends StatelessWidget {
             text: 'Serial: ',
             style: boldTextStyle,
             children: <TextSpan>[
-              TextSpan(text: _auth.serialNumber, style: defaultStyle),
+              TextSpan(text: _auth!.serialNumber, style: defaultStyle),
             ],
           ),
         ),
@@ -89,7 +89,7 @@ class _AuthInfo extends StatelessWidget {
             text: 'Restore-Code: ',
             style: boldTextStyle,
             children: <TextSpan>[
-              TextSpan(text: _auth.restoreCode, style: defaultStyle),
+              TextSpan(text: _auth!.restoreCode, style: defaultStyle),
             ],
           ),
         ),
@@ -99,9 +99,9 @@ class _AuthInfo extends StatelessWidget {
 }
 
 class _ErrorInfo extends StatelessWidget {
-  const _ErrorInfo(this._error, {Key key}) : super(key: key);
+  const _ErrorInfo(this._error, {Key? key}) : super(key: key);
 
-  final Object _error;
+  final Object? _error;
 
   @override
   Widget build(BuildContext context) {

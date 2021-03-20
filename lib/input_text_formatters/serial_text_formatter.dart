@@ -47,7 +47,7 @@ class SerialTextFormatter extends TextInputFormatter {
     );
   }
 
-  RegExpMatch getFirstMatch(TextEditingValue value, String regex) {
+  RegExpMatch? getFirstMatch(TextEditingValue value, String regex) {
     final Iterable<RegExpMatch> regionMatches =
         RegExp(regex).allMatches(value.text);
     return regionMatches.isNotEmpty ? regionMatches.first : null;
@@ -61,7 +61,7 @@ class SerialTextFormatter extends TextInputFormatter {
     TextEditingValue editedValue = newValue;
 
     // finds all uppercase letters aka region
-    final RegExpMatch region = getFirstMatch(newValue, '[A-Z]+');
+    final RegExpMatch? region = getFirstMatch(newValue, '[A-Z]+');
 
     /*
     REGEX-EXPLANATION:
@@ -69,7 +69,7 @@ class SerialTextFormatter extends TextInputFormatter {
     - [\-\d]* is any combination of digits and dashes, these are followed up by
     - the \d at the start makes sure that not a pure - is matched
      */
-    RegExpMatch digits = getFirstMatch(newValue, r'\d[\-\d]*');
+    RegExpMatch? digits = getFirstMatch(newValue, r'\d[\-\d]*');
 
     // if there are region letters and digits try inserting a dash
     if (region != null && digits != null) {
@@ -81,7 +81,7 @@ class SerialTextFormatter extends TextInputFormatter {
     if (digits != null) {
       int digitAmount = 0;
 
-      for (int i = digits.start; i < digits.end; i++) {
+      for (int i = digits.start; i < digits!.end; i++) {
         final String digit = editedValue.text.substring(i, i + 1);
         if (digit != '-') {
           digitAmount++;

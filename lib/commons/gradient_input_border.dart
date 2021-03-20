@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class GradientInputBorder extends UnderlineInputBorder {
   const GradientInputBorder({
-    @required this.gradient,
+    required this.gradient,
     BorderSide borderSide = const BorderSide(),
     BorderRadius borderRadius = const BorderRadius.only(
       topLeft: Radius.circular(4),
@@ -15,9 +15,9 @@ class GradientInputBorder extends UnderlineInputBorder {
 
   @override
   GradientInputBorder copyWith({
-    BorderSide borderSide,
-    BorderRadius borderRadius,
-    Gradient gradient,
+    BorderSide? borderSide,
+    BorderRadius? borderRadius,
+    Gradient? gradient,
   }) {
     return GradientInputBorder(
       borderSide: borderSide ?? this.borderSide,
@@ -35,11 +35,11 @@ class GradientInputBorder extends UnderlineInputBorder {
   }
 
   @override
-  ShapeBorder lerpFrom(ShapeBorder a, double t) {
+  ShapeBorder? lerpFrom(ShapeBorder? a, double t) {
     if (a is GradientInputBorder) {
       return GradientInputBorder(
         borderSide: BorderSide.lerp(a.borderSide, borderSide, t),
-        borderRadius: BorderRadius.lerp(a.borderRadius, borderRadius, t),
+        borderRadius: BorderRadius.lerp(a.borderRadius, borderRadius, t)!,
         gradient: gradient,
       );
     }
@@ -47,11 +47,11 @@ class GradientInputBorder extends UnderlineInputBorder {
   }
 
   @override
-  ShapeBorder lerpTo(ShapeBorder b, double t) {
+  ShapeBorder? lerpTo(ShapeBorder? b, double t) {
     if (b is GradientInputBorder) {
       return GradientInputBorder(
         borderSide: BorderSide.lerp(borderSide, b.borderSide, t),
-        borderRadius: BorderRadius.lerp(borderRadius, b.borderRadius, t),
+        borderRadius: BorderRadius.lerp(borderRadius, b.borderRadius, t)!,
         gradient: gradient,
       );
     }
@@ -62,10 +62,10 @@ class GradientInputBorder extends UnderlineInputBorder {
   void paint(
     Canvas canvas,
     Rect rect, {
-    double gapStart,
+    double? gapStart,
     double gapExtent = 0.0,
     double gapPercentage = 0.0,
-    TextDirection textDirection,
+    TextDirection? textDirection,
   }) {
     if (borderRadius.bottomLeft != Radius.zero ||
         borderRadius.bottomRight != Radius.zero) {
