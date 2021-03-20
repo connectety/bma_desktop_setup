@@ -2,8 +2,7 @@
 
 set -e
 
-flutter="~/development/flutter"
-flutter="$flutter/bin/flutter"
+flutter="flutter"
 
 name="setup4bmatotp"
 org="io.github.connectety"
