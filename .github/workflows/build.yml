@@ -26,7 +26,7 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'stable'
 
       - name: Enable MacOS Desktop
         run: flutter config --enable-macos-desktop
@@ -60,7 +60,7 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'stable'
 
       - name: Enable Windows Desktop
         run: flutter config --enable-windows-desktop
@@ -94,7 +94,7 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: 'stable'
 
       - name: Install Dev Depenencies 
         run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev
@@ -109,5 +109,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Linux-Build
-          path: build/linux/release/bundle/
+          path: build/linux/x64/release/bundle/
   
