@@ -38,7 +38,7 @@ class AuthInfoPage extends StatelessWidget {
               AsyncSnapshot<Authenticator> snapshot,
             ) {
               if (snapshot.hasData) {
-                return _AuthInfo(snapshot.data);
+                return _AuthInfo(snapshot.data!);
               } else if (snapshot.hasError) {
                 return _ErrorInfo(snapshot.error);
               } else {
@@ -55,7 +55,7 @@ class AuthInfoPage extends StatelessWidget {
 class _AuthInfo extends StatelessWidget {
   const _AuthInfo(this._auth, {Key? key}) : super(key: key);
 
-  final Authenticator? _auth;
+  final Authenticator _auth;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _AuthInfo extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: QrImage(
-            data: _auth!.totpUrl,
+            data: _auth.totpUrl,
           ),
         ),
         RichText(
@@ -80,7 +80,7 @@ class _AuthInfo extends StatelessWidget {
             text: 'Serial: ',
             style: boldTextStyle,
             children: <TextSpan>[
-              TextSpan(text: _auth!.serialNumber, style: defaultStyle),
+              TextSpan(text: _auth.serialNumber, style: defaultStyle),
             ],
           ),
         ),
@@ -89,7 +89,7 @@ class _AuthInfo extends StatelessWidget {
             text: 'Restore-Code: ',
             style: boldTextStyle,
             children: <TextSpan>[
-              TextSpan(text: _auth!.restoreCode, style: defaultStyle),
+              TextSpan(text: _auth.restoreCode, style: defaultStyle),
             ],
           ),
         ),

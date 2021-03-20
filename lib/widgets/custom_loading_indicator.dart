@@ -10,12 +10,7 @@ class CustomLoadingIndicator extends StatefulWidget {
     this.lineWidth = 6,
     this.paddlePadding = 2,
     Key? key,
-  })  : assert(color != null, 'Please specify a color'),
-        assert(height != null, 'height cant be null'),
-        assert(width != null, 'width cant be null'),
-        assert(lineWidth != null, 'lineWidth cant be null'),
-        assert(paddlePadding != null, 'paddlePadding cant be null'),
-        paddleHeight = height / 4,
+  })  : paddleHeight = height / 4,
         super(key: key);
 
   final Color color;
