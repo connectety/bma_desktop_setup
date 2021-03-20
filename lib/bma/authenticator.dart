@@ -22,7 +22,8 @@ class Authenticator {
 
   String get restoreCode {
     final Uint8List secretKeyBytes = base32.decode(_secretKey);
-    final Uint8List serialBytes = utf8.encode(normalizeSerial(_serialNumber));
+    final Uint8List serialBytes =
+      utf8.encode(normalizeSerial(_serialNumber)) as Uint8List;
 
     final Uint8List data = Uint8List.fromList(serialBytes + secretKeyBytes);
 

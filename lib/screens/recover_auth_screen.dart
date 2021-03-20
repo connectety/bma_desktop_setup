@@ -12,14 +12,14 @@ import '../widgets/region_selector.dart';
 import 'auth_info_screen.dart';
 
 class RecoverAuthPage extends StatelessWidget {
-  RecoverAuthPage({Key key}) : super(key: key);
+  RecoverAuthPage({Key? key}) : super(key: key);
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController serialController = TextEditingController();
   final TextEditingController restoreCodeController = TextEditingController();
 
   void submit(BuildContext context) {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       Navigator.push(
         context,
         SlidePageRoute<AuthInfoPage>(
@@ -27,7 +27,7 @@ class RecoverAuthPage extends StatelessWidget {
             () => restore(
               serialController.text,
               restoreCodeController.text,
-              RegionModel.of(context).region,
+              RegionModel.of(context).region!,
             ),
           ),
         ),
@@ -60,8 +60,8 @@ class RecoverAuthPage extends StatelessWidget {
       ),
       controller: controller,
       inputFormatters: inputFormatters,
-      validator: (String value) {
-        if (value.length < requiredLength) {
+      validator: (String? value) {
+        if (value!.length < requiredLength) {
           return 'Please completely fill in the $name. (e.g. $example)';
         }
         return null;
@@ -79,7 +79,7 @@ class RecoverAuthPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           gradient: LinearGradient(colors: <Color>[
             Colors.black,
-            Colors.grey[800],
+            Colors.grey[800]!,
           ]),
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           label: const Text(

@@ -4,20 +4,20 @@ import 'package:flutter/widgets.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
-    @required this.onPressed,
-    @required this.gradient,
-    @required this.child,
+    required this.onPressed,
+    required this.gradient,
+    required this.child,
     this.borderRadius = const BorderRadius.all(Radius.circular(80)),
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   GradientButton.icon({
-    @required this.onPressed,
-    @required this.gradient,
-    @required Widget icon,
-    @required Widget label,
+    required this.onPressed,
+    required this.gradient,
+    required Widget icon,
+    required Widget label,
     this.borderRadius = const BorderRadius.all(Radius.circular(80)),
-    Key key,
+    Key? key,
   })  : child = Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[icon, const SizedBox(width: 8), label],

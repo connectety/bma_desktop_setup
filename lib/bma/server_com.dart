@@ -26,7 +26,7 @@ Future<Authenticator> createAuthenticator(String region) async {
 
   // http instead of https because their certificate is invalid
   final http.Response response = await http.post(
-    Uri.http(hosts[region], enrollUrl),
+    Uri.http(hosts[region]!, enrollUrl),
     body: encryptedRequestData,
   );
 
@@ -64,7 +64,7 @@ Future<Authenticator> restore(
 
   // http instead of https because their certificate is invalid
   final Future<http.Response> challengeFuture = http.post(
-    Uri.http(hosts[region], initiateRestoreUrl),
+    Uri.http(hosts[region]!, initiateRestoreUrl),
     body: serial,
   );
 
@@ -124,7 +124,7 @@ Future<Authenticator> restore(
 
   // http instead of https because their certificate is invalid
   final http.Response validateResponse = await http.post(
-    Uri.http(hosts[region], validateRestoreUrl),
+    Uri.http(hosts[region]!, validateRestoreUrl),
     body: data,
   );
 

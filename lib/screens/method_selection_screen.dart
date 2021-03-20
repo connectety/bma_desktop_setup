@@ -8,7 +8,7 @@ import 'auth_info_screen.dart';
 import 'recover_auth_screen.dart';
 
 class MethodSelectionPage extends StatelessWidget {
-  const MethodSelectionPage({Key key}) : super(key: key);
+  const MethodSelectionPage({Key? key}) : super(key: key);
 
   Widget _btnFactory(
     final BuildContext context,
@@ -49,11 +49,11 @@ class MethodSelectionPage extends StatelessWidget {
               context,
               Icons.add,
               LinearGradient(colors: <Color>[
-                Colors.green[600],
-                Colors.greenAccent[700],
+                Colors.green[600]!,
+                Colors.greenAccent[700]!,
               ]),
               AuthInfoPage(() {
-                return createAuthenticator(RegionSelector.getRegion(context));
+                return createAuthenticator(RegionSelector.getRegion(context)!);
               }),
               'Create new authenticator',
             ),

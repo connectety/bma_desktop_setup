@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 
 class CustomLoadingIndicator extends StatefulWidget {
   const CustomLoadingIndicator({
-    @required this.color,
+    required this.color,
     this.height = 240.0,
     this.width = 320.0,
     this.duration = const Duration(milliseconds: 1800),
     this.lineWidth = 6,
     this.paddlePadding = 2,
-    Key key,
+    Key? key,
   })  : assert(color != null, 'Please specify a color'),
         assert(height != null, 'height cant be null'),
         assert(width != null, 'width cant be null'),
@@ -33,11 +33,11 @@ class CustomLoadingIndicator extends StatefulWidget {
 
 class _CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> ballXAnimation;
-  Animation<double> ballYAnimation;
-  Animation<double> leftPaddleAnimations;
-  Animation<double> rightPaddleAnimations;
+  late AnimationController _controller;
+  late Animation<double> ballXAnimation;
+  late Animation<double> ballYAnimation;
+  late Animation<double> leftPaddleAnimations;
+  late Animation<double> rightPaddleAnimations;
 
   @override
   void initState() {
@@ -209,10 +209,10 @@ class _CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
 
 class _Net extends StatelessWidget {
   const _Net({
-    @required this.color,
-    @required this.dashWidth,
-    @required this.netHeight,
-    Key key,
+    required this.color,
+    required this.dashWidth,
+    required this.netHeight,
+    Key? key,
   }) : super(key: key);
 
   final double dashWidth;
