@@ -72,7 +72,7 @@ class _AuthInfo extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: QrImage(
-            data: _auth!.totpURl,
+            data: _auth!.totpUrl,
           ),
         ),
         RichText(

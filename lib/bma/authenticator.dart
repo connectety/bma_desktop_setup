@@ -17,7 +17,7 @@ class Authenticator {
 
   String get serialNumber => _serialNumber;
 
-  String get totpURl => 'otpauth://totp/Blizzard:$serialNumber'
+  String get totpUrl => 'otpauth://totp/Blizzard:$serialNumber'
       '?secret=$secretKey&issuer=Blizzard&digits=8';
 
   String get restoreCode {
