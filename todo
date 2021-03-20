@@ -2,3 +2,5 @@ make text and error icon scale
 make info page use multiple columns in same row, when to large
 ask AndOTP very kindly to add project to wiki.
 add about page
+add tests to flutter actions
+prewarm animations
