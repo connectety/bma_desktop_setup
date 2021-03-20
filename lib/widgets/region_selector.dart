@@ -6,7 +6,7 @@ import '../scoped_models/region_model.dart';
 class RegionSelector extends StatelessWidget {
   const RegionSelector({Key? key}) : super(key: key);
 
-  static String? getRegion(BuildContext context) {
+  static String getRegion(BuildContext context) {
     return RegionModel.of(context).region;
   }
 

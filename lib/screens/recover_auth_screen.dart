@@ -19,7 +19,7 @@ class RecoverAuthPage extends StatelessWidget {
   final TextEditingController restoreCodeController = TextEditingController();
 
   void submit(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       Navigator.push(
         context,
         SlidePageRoute<AuthInfoPage>(
@@ -27,7 +27,7 @@ class RecoverAuthPage extends StatelessWidget {
             () => restore(
               serialController.text,
               restoreCodeController.text,
-              RegionModel.of(context).region!,
+              RegionModel.of(context).region,
             ),
           ),
         ),
@@ -61,7 +61,7 @@ class RecoverAuthPage extends StatelessWidget {
       controller: controller,
       inputFormatters: inputFormatters,
       validator: (String? value) {
-        if (value!.length < requiredLength) {
+        if (value != null && value.length < requiredLength) {
           return 'Please completely fill in the $name. (e.g. $example)';
         }
         return null;

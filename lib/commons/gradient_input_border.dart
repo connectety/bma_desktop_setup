@@ -8,8 +8,7 @@ class GradientInputBorder extends UnderlineInputBorder {
       topLeft: Radius.circular(4),
       topRight: Radius.circular(4),
     ),
-  })  : assert(gradient != null, 'set a gradient or use UnderlineInputBorder'),
-        super(borderSide: borderSide, borderRadius: borderRadius);
+  })  : super(borderSide: borderSide, borderRadius: borderRadius);
 
   final Gradient gradient;
 
@@ -89,6 +88,7 @@ class GradientInputBorder extends UnderlineInputBorder {
       return false;
     }
 
+    // ignore: avoid_dynamic_calls
     return gradient == other.gradient;
   }
 

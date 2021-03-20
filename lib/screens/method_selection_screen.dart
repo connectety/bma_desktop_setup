@@ -53,7 +53,7 @@ class MethodSelectionPage extends StatelessWidget {
                 Colors.greenAccent[700]!,
               ]),
               AuthInfoPage(() {
-                return createAuthenticator(RegionSelector.getRegion(context)!);
+                return createAuthenticator(RegionSelector.getRegion(context));
               }),
               'Create new authenticator',
             ),

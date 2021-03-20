@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SlidePageRoute<T> extends PageRouteBuilder<T> {
-  SlidePageRoute({this.widget})
+  SlidePageRoute({required this.widget})
       : super(
           pageBuilder: (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) {
-            return widget!;
+            return widget;
           },
           transitionsBuilder: (
             BuildContext _,
@@ -26,5 +26,5 @@ class SlidePageRoute<T> extends PageRouteBuilder<T> {
           },
         );
 
-  final Widget? widget;
+  final Widget widget;
 }
