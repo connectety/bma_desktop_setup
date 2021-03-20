@@ -8,7 +8,7 @@ void main() {
   const String restoreCode = 'GNF5YE1JBH';
   const String region = 'EU';
 
-  test('can run authenticator', () async {
+  test('create new authenticator', () async {
     final Authenticator auth = await createAuthenticator(region);
 
     // ignore: avoid_print
@@ -19,13 +19,22 @@ void main() {
     print('bma.Authenticator restore code: ${auth.restoreCode}');
   });
 
-  test('test restore', () {
+  test('create restore code', () {
     final Authenticator auth = Authenticator(secret, serial);
     expect(auth.restoreCode, restoreCode);
   });
 
-  test('can restore authenticator', () async {
+  test('restore authenticator', () async {
     final Authenticator auth = await restore(serial, restoreCode, region);
     expect(auth.secretKey, secret);
+  });
+
+  test('run full lifecycle', () async {
+    final Authenticator auth = await createAuthenticator(region);
+
+    final Authenticator restoredAuth =
+      await restore(auth.serialNumber, auth.restoreCode, region);
+
+    expect(auth.totpUrl, restoredAuth.totpUrl);
   });
 }

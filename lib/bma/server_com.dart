@@ -148,5 +148,5 @@ Future<Authenticator> restore(
   );
   final String secretKey = base32.encode(secretBytes);
 
-  return Authenticator(secretKey, serial);
+  return Authenticator(secretKey, _serial);
 }
