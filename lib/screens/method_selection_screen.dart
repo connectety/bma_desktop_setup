@@ -21,7 +21,7 @@ class MethodSelectionPage extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          SlidePageRoute<AuthInfoPage>(
+          SlidePageRoute(
             widget: routeWidget,
           ),
         );
