@@ -32,8 +32,8 @@ To easily verify that I didn't inject harmful code into platform folders:
  -  build the app from there
 
 ```bash
-cd setup4bmatotp
-flutter create --project-name="setup4bmatotp" --org="io.github.connectety" --description="helps setting up a totp app to use as a second factor authenticator for blizzard" .
+cd bma_desktop_setup
+flutter create --project-name="bma_desktop_setup" --org="io.github.connectety" --description="helps setting up a totp app to use as a second factor authenticator for blizzard" .
 ```
 
 (because flutter is continually updated, there are likely changes to the platform folders from the once you deleted.)

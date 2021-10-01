@@ -92,10 +92,10 @@ BEGIN
             VALUE "CompanyName", "io.github.connectety" "\0"
             VALUE "FileDescription", "helps setting up a totp app to use as a second factor authenticator for blizzard" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "setup4bmatotp" "\0"
+            VALUE "InternalName", "bma_desktop_setup" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2021 io.github.connectety. All rights reserved." "\0"
-            VALUE "OriginalFilename", "setup4bmatotp.exe" "\0"
-            VALUE "ProductName", "setup4bmatotp" "\0"
+            VALUE "OriginalFilename", "bma_desktop_setup.exe" "\0"
+            VALUE "ProductName", "bma_desktop_setup" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

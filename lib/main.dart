@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ScopedModel<RegionModel>(
       model: RegionModel(),
       child: const MaterialApp(
-        title: 'setup4bmatotp',
+        title: 'bma_desktop_setup',
         home: MethodSelectionPage(),
       ),
     );

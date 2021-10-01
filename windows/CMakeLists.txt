@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(setup4bmatotp LANGUAGES CXX)
+project(bma_desktop_setup LANGUAGES CXX)
 
-set(BINARY_NAME "setup4bmatotp")
+set(BINARY_NAME "bma_desktop_setup")
 
 cmake_policy(SET CMP0063 NEW)
 

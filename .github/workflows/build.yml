@@ -42,7 +42,7 @@ jobs:
         include:
           - os: macos
             NAME: macos
-            BINARY_PATH: build/macos/Build/Products/Release/setup4bmatotp.app/
+            BINARY_PATH: build/macos/Build/Products/Release/bma_desktop_setup.app/
 
           - os: ubuntu
             NAME: linux
