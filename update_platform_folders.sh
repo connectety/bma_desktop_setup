@@ -17,6 +17,6 @@ ${flutter} create --project-name="$name" --org="$org" --description="$desc" .
 
 rm test/widget_test.dart
 
-echo -e "\n# Users custom\n/.gradle/\n/analysis_options.yaml" >> .gitignore
+echo -e "\n# Users custom\n/.gradle/" >> .gitignore
 
 git add linux macos windows .gitignore
