@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 project(setup4bmatotp LANGUAGES CXX)
 
 set(BINARY_NAME "setup4bmatotp")
