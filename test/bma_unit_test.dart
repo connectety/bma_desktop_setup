@@ -1,5 +1,5 @@
-import 'package:setup4bmatotp/bma/authenticator.dart';
-import 'package:setup4bmatotp/bma/server_com.dart';
+import 'package:bma_desktop_setup/bma/authenticator.dart';
+import 'package:bma_desktop_setup/bma/server_com.dart';
 import 'package:test/test.dart';
 
 void main() {

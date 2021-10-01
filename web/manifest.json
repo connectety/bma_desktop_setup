@@ -1,6 +1,6 @@
 {
-    "name": "setup4bmatotp",
-    "short_name": "setup4bmatotp",
+    "name": "bma_desktop_setup",
+    "short_name": "bma_desktop_setup",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

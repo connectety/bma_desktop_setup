@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "setup4bmatotp")
-set(APPLICATION_ID "io.github.connectety.setup4bmatotp")
+set(BINARY_NAME "bma_desktop_setup")
+set(APPLICATION_ID "io.github.connectety.bma_desktop_setup")
 
 cmake_policy(SET CMP0063 NEW)
 

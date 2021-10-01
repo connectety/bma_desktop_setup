@@ -1,4 +1,4 @@
-name: setup4bmatotp
+name: bma_desktop_setup
 description: helps setting up a totp app to use as a second factor authenticor for blizzard
 
 # prevent publishing

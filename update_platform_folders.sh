@@ -4,7 +4,7 @@ set -e
 
 flutter="flutter"
 
-name="setup4bmatotp"
+name="bma_desktop_setup"
 org="io.github.connectety"
 desc="helps setting up a totp app to use as a second factor authenticator for blizzard"
 
