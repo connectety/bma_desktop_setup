@@ -79,7 +79,7 @@ class GradientInputBorder extends UnderlineInputBorder {
   }
 
   @override
-  bool operator ==(dynamic other) { // ignore: avoid_annotating_with_dynamic
+  bool operator ==(dynamic other) {
     if (super != other) {
       return false;
     }
@@ -88,7 +88,6 @@ class GradientInputBorder extends UnderlineInputBorder {
       return false;
     }
 
-    // ignore: avoid_dynamic_calls
     return gradient == other.gradient;
   }
 

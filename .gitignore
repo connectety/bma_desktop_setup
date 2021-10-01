@@ -47,4 +47,3 @@ app.*.map.json
 
 # Users custom
 /.gradle/
-/analysis_options.yaml
