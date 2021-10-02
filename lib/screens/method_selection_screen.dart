@@ -10,7 +10,7 @@ import 'recover_auth_screen.dart';
 class MethodSelectionPage extends StatelessWidget {
   const MethodSelectionPage({Key? key}) : super(key: key);
 
-  Widget _btnFactory(
+  Widget _btnFactory<T>(
     final BuildContext context,
     final IconData icon,
     final Gradient gradient,
@@ -21,7 +21,7 @@ class MethodSelectionPage extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          SlidePageRoute(
+          SlidePageRoute<T>(
             widget: routeWidget,
           ),
         );
@@ -71,6 +71,20 @@ class MethodSelectionPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: TextButton(
+        onPressed: () {
+          showLicensePage(
+            context: context,
+            applicationIcon: Image.asset('assets/icon.png'),
+            applicationName: 'BMA Desktop Setup',
+          );
+        },
+        style: TextButton.styleFrom(
+          primary: Colors.blueGrey,
+        ),
+        child: const Text('Show Licenses'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
