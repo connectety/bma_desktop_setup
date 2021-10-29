@@ -13,7 +13,7 @@ ${flutter} pub upgrade
 rm .gitignore
 rm -rf linux macos windows
 
-${flutter} create --project-name="$name" --org="$org" --description="$desc" .
+${flutter} create --platforms=linux,macos,windows --project-name="$name" --org="$org" --description="$desc" .
 
 rm test/widget_test.dart
 
