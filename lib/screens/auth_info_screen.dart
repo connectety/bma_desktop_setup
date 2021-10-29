@@ -13,21 +13,8 @@ class AuthInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: Padding(
-        padding: const EdgeInsets.all(8),
-        child: GradientButton.icon(
-          onPressed: () => Navigator.pop(context),
-          gradient: const LinearGradient(colors: <Color>[
-            Color(0xff000000),
-            Color(0xff434343),
-          ]),
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          label: const Text(
-            'Back',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: backBtnFactory(context),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(80),
