@@ -8,7 +8,7 @@ class GradientInputBorder extends UnderlineInputBorder {
       topLeft: Radius.circular(4),
       topRight: Radius.circular(4),
     ),
-  })  : super(borderSide: borderSide, borderRadius: borderRadius);
+  }) : super(borderSide: borderSide, borderRadius: borderRadius);
 
   final Gradient gradient;
 
@@ -79,17 +79,8 @@ class GradientInputBorder extends UnderlineInputBorder {
   }
 
   @override
-  bool operator ==(dynamic other) {
-    if (super != other) {
-      return false;
-    }
-
-    if (runtimeType != other.runtimeType) {
-      return false;
-    }
-
-    return gradient == other.gradient;
-  }
+  bool operator ==(Object other) =>
+      other is GradientInputBorder && gradient == other.gradient;
 
   @override
   int get hashCode => hashValues(borderSide, gradient);
