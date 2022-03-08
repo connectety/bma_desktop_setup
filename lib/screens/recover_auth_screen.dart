@@ -73,21 +73,8 @@ class RecoverAuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: Padding(
-        padding: const EdgeInsets.all(8),
-        child: GradientButton.icon(
-          onPressed: () => Navigator.pop(context),
-          gradient: LinearGradient(colors: <Color>[
-            Colors.black,
-            Colors.grey[800]!,
-          ]),
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          label: const Text(
-            'Back',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: backBtnFactory(context),
       body: Padding(
         padding: const EdgeInsets.all(80),
         child: Form(

@@ -52,3 +52,18 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
+
+Widget backBtnFactory(BuildContext context) {
+  return GradientButton.icon(
+    onPressed: () => Navigator.pop(context),
+    gradient: const LinearGradient(colors: <Color>[
+      Color(0xff000000),
+      Color(0xff434343),
+    ]),
+    icon: const Icon(Icons.arrow_back, color: Colors.white),
+    label: const Text(
+      'Back',
+      style: TextStyle(color: Colors.white),
+    ),
+  );
+}
