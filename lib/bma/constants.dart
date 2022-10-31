@@ -1,5 +1,7 @@
 import 'package:pointycastle/export.dart';
 
+import 'util.dart';
+
 const Map<String, String> hosts = <String, String>{
   'CN': 'mobile-service.battlenet.com.cn',
   'US': 'mobile-service.blizzard.com',
@@ -26,3 +28,9 @@ final AsymmetricKeyParameter<RSAPublicKey> asyncKeyParam =
     PublicKeyParameter<RSAPublicKey>(
   RSAPublicKey(_modulus, _pow),
 );
+
+final List<int> byte2char = List<int>
+    .generate(10 + 23, byte2charGen);
+
+final List<int> char2byte = List<int>
+    .generate('Z'.codeUnitAt(0) + 1, (int index) => byte2char.indexOf(index));

@@ -30,3 +30,25 @@ Uint8List randomUint8List(int length) {
 
   return communicationKey;
 }
+
+int byte2charGen(int c) {
+  if (c < 10) {
+    c += '0'.codeUnitAt(0);
+  } else {
+    c += 'A'.codeUnitAt(0) - 10;
+    if (c >= 'I'.codeUnitAt(0)) {
+      c += 1;
+    }
+    if (c >= 'L'.codeUnitAt(0)) {
+      c += 1;
+    }
+    if (c >= 'O'.codeUnitAt(0)) {
+      c += 1;
+    }
+    if (c >= 'S'.codeUnitAt(0)) {
+      c += 1;
+    }
+  }
+
+  return c;
+}

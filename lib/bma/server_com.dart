@@ -68,31 +68,10 @@ Future<Authenticator> restore(
     body: serialNormed,
   );
 
-  final Uint8List restoreCodeBytes = uint8ListFromString(restoreCodeNormed);
-  final Uint8List bytes = Uint8List(restoreCodeBytes.length);
-  for (int i = 0; i < restoreCodeBytes.length; i++) {
-    int c = restoreCodeBytes[i];
-
-    if (58 > c && c > 47) {
-      c -= 48;
-    } else {
-      int mod = c - 55;
-      if (c > 72) {
-        mod -= 1;
-      }
-      if (c > 75) {
-        mod -= 1;
-      }
-      if (c > 78) {
-        mod -= 1;
-      }
-      if (c > 82) {
-        mod -= 1;
-      }
-      c = mod;
-    }
-    bytes[i] = c;
-  }
+  final Uint8List bytes = Uint8List.fromList(
+      uint8ListFromString(restoreCodeNormed)
+          .map((int char) => char2byte[char]).toList()
+  );
 
   final http.Response challenge = await challengeFuture;
 
