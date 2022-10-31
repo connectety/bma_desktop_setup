@@ -83,5 +83,5 @@ class GradientInputBorder extends UnderlineInputBorder {
       other is GradientInputBorder && gradient == other.gradient;
 
   @override
-  int get hashCode => hashValues(borderSide, gradient);
+  int get hashCode => Object.hash(borderSide, gradient);
 }

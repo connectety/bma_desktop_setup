@@ -14,7 +14,7 @@ class RegionSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color muteColor = Color(0xB0000000);
 
-    final TextStyle normalStyle = Theme.of(context).textTheme.bodyText2!;
+    final TextStyle normalStyle = Theme.of(context).textTheme.bodyMedium!;
     final TextStyle muteStyle = normalStyle.copyWith(color: muteColor);
 
     return Row(

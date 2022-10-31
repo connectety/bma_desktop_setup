@@ -80,7 +80,7 @@ class MethodSelectionPage extends StatelessWidget {
           );
         },
         style: TextButton.styleFrom(
-          primary: Colors.blueGrey,
+          foregroundColor: Colors.blueGrey,
         ),
         child: const Text('Show Licenses'),
       ),
