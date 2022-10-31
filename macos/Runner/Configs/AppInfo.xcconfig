@@ -11,4 +11,4 @@ PRODUCT_NAME = bma_desktop_setup
 PRODUCT_BUNDLE_IDENTIFIER = io.github.connectety.bmaDesktopSetup
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2021 io.github.connectety. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 io.github.connectety. All rights reserved.
