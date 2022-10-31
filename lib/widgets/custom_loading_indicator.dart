@@ -23,10 +23,10 @@ class CustomLoadingIndicator extends StatefulWidget {
   final double paddleHeight;
 
   @override
-  _CustomLoadingIndicatorState createState() => _CustomLoadingIndicatorState();
+  CustomLoadingIndicatorState createState() => CustomLoadingIndicatorState();
 }
 
-class _CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
+class CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> ballXAnimation;
