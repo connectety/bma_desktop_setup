@@ -51,24 +51,24 @@ Future<Authenticator> createAuthenticator(String region) async {
 }
 
 Future<Authenticator> restore(
-  String _serial,
-  String _restoreCode,
+  String serial,
+  String restoreCode,
   String region,
 ) async {
-  final String serial = normalizeSerial(_serial);
-  final String restoreCode = _restoreCode.toUpperCase();
+  final String serialNormed = normalizeSerial(serial);
+  final String restoreCodeNormed = restoreCode.toUpperCase();
 
-  assert(restoreCode.length == 10, 'restore code not 10 chars long');
+  assert(restoreCodeNormed.length == 10, 'restore code not 10 chars long');
 
-  final Uint8List serialBytes = uint8ListFromString(serial);
+  final Uint8List serialBytes = uint8ListFromString(serialNormed);
 
   // http instead of https because their certificate is invalid
   final Future<http.Response> challengeFuture = http.post(
     Uri.http(hosts[region]!, initiateRestoreUrl),
-    body: serial,
+    body: serialNormed,
   );
 
-  final Uint8List restoreCodeBytes = uint8ListFromString(restoreCode);
+  final Uint8List restoreCodeBytes = uint8ListFromString(restoreCodeNormed);
   final Uint8List bytes = Uint8List(restoreCodeBytes.length);
   for (int i = 0; i < restoreCodeBytes.length; i++) {
     int c = restoreCodeBytes[i];
@@ -108,7 +108,7 @@ Future<Authenticator> restore(
   );
 
   final Uint8List hmacData = Uint8List.fromList(
-    uint8ListFromString(serial) + challenge.bodyBytes,
+    uint8ListFromString(serialNormed) + challenge.bodyBytes,
   );
 
   final HMac hmac = HMac(SHA1Digest(), 64)..init(KeyParameter(bytes));
@@ -148,5 +148,5 @@ Future<Authenticator> restore(
   );
   final String secretKey = base32.encode(secretBytes);
 
-  return Authenticator(secretKey, _serial);
+  return Authenticator(secretKey, serial);
 }
