@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:base32/base32.dart';
 import 'package:pointycastle/export.dart';
 
+import 'constants.dart';
 import 'util.dart';
 
 class Authenticator {
@@ -30,34 +31,10 @@ class Authenticator {
     Uint8List digest = sha1.process(data);
     digest = digest.sublist(digest.length - 10);
 
-    final List<int> charCodes = <int>[];
-    for (final int i in digest) {
-      int c = i & 0x1f;
-
-      if (c < 10) {
-        c += 48;
-      } else {
-        c += 55;
-        // I
-        if (c > 72) {
-          c += 1;
-        }
-        // L
-        if (c > 75) {
-          c += 1;
-        }
-        // O
-        if (c > 78) {
-          c += 1;
-        }
-        // S
-        if (c > 82) {
-          c += 1;
-        }
-      }
-
-      charCodes.add(c);
-    }
+    final List<int> charCodes = digest.map((int i) {
+      final int byte = i & 0x1f;
+      return byte2char[byte];
+    }).toList();
 
     return String.fromCharCodes(charCodes);
   }
