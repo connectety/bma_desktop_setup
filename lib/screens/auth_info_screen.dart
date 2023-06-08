@@ -58,7 +58,7 @@ class _AuthInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Expanded(
-          child: QrImage(
+          child: QrImageView(
             data: _auth.totpUrl,
           ),
         ),
